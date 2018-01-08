@@ -10,7 +10,7 @@ import { LocationDataProvider } from "../../providers/location-data/location-dat
 })
 export class LocationsPage {
 
-  public locations: Array<any> = LocationDataProvider.locationData;
+  public locations: Array<any> = [];
 
   constructor(
     public navCtrl: NavController,

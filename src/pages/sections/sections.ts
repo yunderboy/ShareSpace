@@ -39,6 +39,8 @@ export class SectionsPage {
   }
 
   public calcTablesInUse = (workRoom: any): number => {
+    console.log('Work room:', workRoom);
+    console.log('Free tables: ', workRoom.tables.filter((table) => table.inUse == false ));
     return workRoom.tables.filter((table) => table.inUse == false ).length;
   };
 }
