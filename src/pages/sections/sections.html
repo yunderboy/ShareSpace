@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title *ngIf="currentLocation.label">{{currentLocation.label}}</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top no-border-bottom>
+    <ion-segment [(ngModel)]="locationType">
+      <ion-segment-button value="offices">
+        Kontorer
+      </ion-segment-button>
+      <ion-segment-button value="meetingRooms">
+        Mødelokaler
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div [ngSwitch]="locationType">
+    <ion-list *ngSwitchCase="'offices'">
+      <ion-list-header>
+        Kontorer
+      </ion-list-header>
+
+
+      <ion-item *ngFor="let workRoom of locationData.getWorkRoomsFromLocation(locationId)">
+        {{workRoom.alias}}
+        <ion-note item-end>
+          Ledige pladser: {{ calcTablesInUse(workRoom) }}
+        </ion-note>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'meetingRooms'">
+      <ion-list-header>
+        Mødelokaler
+      </ion-list-header>
+
+      <ion-item *ngFor="let meetingRoom of currentLocation.meetingRooms">
+        {{meetingRoom.alias}}
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-content>

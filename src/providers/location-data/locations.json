@@ -1,0 +1,34 @@
+{
+  "locations": [
+    {
+      "locationId": 0,
+      "alias": "AL",
+      "label": "Allerød",
+      "description": "Allerød",
+      "workRooms": [
+        {
+          "roomId": 0,
+          "alias": "AL011",
+          "tables": [
+            {
+              "tableId": 0,
+              "label": "aaa"
+            }
+          ]
+        }
+      ],
+      "meetingRooms": [
+        {
+          "roomId": 1,
+          "alias": "AL015"
+        }
+      ]
+    },
+    {
+      "locationId": 1,
+      "alias": "HI",
+      "label": "Hillerød",
+      "description": "Hillerød"
+    }
+  ]
+}
