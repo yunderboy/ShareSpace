@@ -1,0 +1,19 @@
+{
+  "name": "ShareSpace",
+  "short_name": "SS",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#adc200",
+  "theme_color": "#adc200",
+  "theme": {
+    "colors": {
+      "accentcolor": "#adc200",
+      "textcolor": "#ffff"
+    }
+  }
+}
