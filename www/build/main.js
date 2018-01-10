@@ -1,1 +1,346 @@
-webpackJsonp([2],{111:function(o,n,a){"use strict";a.d(n,"a",function(){return e});a(5);var t=a(226),e=(a.n(t),function(){function o(o,a){this.http=o,this.appRef=a,this.getAllLocations=function(){return n.locationData.locations},this.getLocationById=function(o){var a=n.locationData.locations.findIndex(function(n){return n.locationId==o});return n.locationData.locations[a]},this.getWorkRoomTables=function(o){console.log("Searching for work room with id: "+o);var a=[];return n.locationData.locations.forEach(function(t,e){console.log("Current location"+JSON.stringify(t));var i=t.workRooms.findIndex(function(n){return n.roomId=o});a=n.locationData.locations[e].workRooms[i].tables}),a},this.calcTablesInUse=function(o){return n.locationData.locations.forEach(function(o){}),o.tables.filter(function(o){return 0==o.inUse}).length},this.http.get("http://192.168.1.7/location.json").toPromise().then(function(o){console.log("Recieved response",o.json()),n.locationData=o.json()}).catch(function(o){console.error("Recieved request err ",o)}),this._client=new t.Paho.MQTT.Client("192.168.1.7",61614,"",""),this._client.onConnectionLost=function(o){console.log("Connection lost.")},this._client.onMessageArrived=function(o){n.locationData.increment++,console.log("Message arrived.");var a=JSON.parse(o.payloadString);console.log(a),console.log("Searching for work- or meeting rooms with associated with device id: "+a.deviceId),n.locationData.locations.forEach(function(o){for(var n=0;n<o.meetingRooms.length;n++)if(o.meetingRooms[n].deviceId==a.deviceId){o.meetingRooms[n].inUse=a.inUse;break}for(n=0;n<o.workRooms.length;n++)for(var t=0;t<o.workRooms[n].tables.length;t++)if(o.workRooms[n].tables[t].deviceId==a.deviceId){o.workRooms[n].tables[t].inUse=a.inUse;break}}),n.locationData=JSON.parse(JSON.stringify(n.locationData)),console.log(n.locationData)},this._client.connect({onSuccess:this.onConnected.bind(this)})}return n=o,o.prototype.onConnected=function(){console.log("Connected to broker."),this._client.subscribe("sts/#",{})},o.prototype.getIncrement=function(){return n.locationData.increment},o.prototype.getWorkRoomsFromLocation=function(o){var a=n.locationData.locations.findIndex(function(o){return 0==o.locationId});return console.log("FOUND ID"+a+" requested ID: "+o),n.locationData.locations[a].workRooms},o.locationData={locations:[{locationId:0,alias:"AL",label:"Allerød",description:"Allerød",workRooms:[{roomId:0,alias:"D1330",tables:[{tableId:0,deviceId:"c41405",inUse:!1,label:"Lols"},{tableId:1,label:"Chefens skrivebord",deviceId:"36216c",inUse:!1},{tableId:2,label:"lel",deviceId:"675f9",inUse:!1}]}],meetingRooms:[{roomId:1,alias:"AL015",inUse:!1}]}]},o;var n}())},127:function(o,n){function a(o){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+o+"'.")})}a.keys=function(){return[]},a.resolve=a,o.exports=a,a.id=127},161:function(o,n,a){var t={"../pages/locations/locations.module.ngfactory":[233,1],"../pages/sections/sections.module.ngfactory":[234,0]};function e(o){var n=t[o];return n?a.e(n[1]).then(function(){return a(n[0])}):Promise.reject(new Error("Cannot find module '"+o+"'."))}e.keys=function(){return Object.keys(t)},e.id=161,o.exports=e},196:function(o,n,a){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var t=a(24),e=a(0),i=(a(5),a(110),a(68)),l=a(69),c=function(){return function(o,n,a,t){this.rootPage="LocationsPage",o.ready().then(function(){n.styleDefault(),a.hide()}),t.set("mode","ios")}}(),r=a(111),s=a(72),u=function(){return function(){}}(),_=a(44),d=a(186),f=a(187),g=a(188),h=a(189),m=a(190),b=a(191),p=a(192),v=a(193),k=a(195),I=a(232),y=a(33),w=a(49),D=a(4),R=a(20),j=a(8),P=a(1),C=a(3),L=a(7),S=a(28),U=a(13),O=a(9),M=e.X({encapsulation:2,styles:[],data:{}});function N(o){return e._19(0,[e._16(402653184,1,{nav:0}),(o()(),e.Z(1,0,null,null,2,"ion-nav",[],null,null,null,I.b,I.a)),e._15(6144,null,y.a,null,[w.a]),e.Y(3,4374528,[[1,4]],0,w.a,[[2,D.a],[2,R.a],j.a,P.a,C.a,e.j,e.u,e.z,e.i,L.l,S.a,[2,U.a],O.a,e.k],{root:[0,"root"]},null),(o()(),e._18(-1,null,["\n"]))],function(o,n){o(n,3,0,n.component.rootPage)},null)}var A=e.V("ng-component",c,function(o){return e._19(0,[(o()(),e.Z(0,0,null,null,1,"ng-component",[],null,null,null,N,M)),e.Y(1,49152,null,0,c,[C.a,i.a,l.a,P.a],null,null)],null,null)},{},{},[]),q=a(16),x=a(91),E=a(17),F=a(82),J=a(84),T=a(90),W=a(14),B=a(30),G=a(34),H=a(88),Y=a(114),Z=a(46),z=a(35),Q=a(95),V=a(57),X=a(99),K=a(93),$=a(106),oo=a(184),no=a(92),ao=a(26),to=a(89),eo=a(94),io=e.W(u,[_.b],function(o){return e._10([e._11(512,e.i,e.S,[[8,[d.a,f.a,g.a,h.a,m.a,b.a,p.a,v.a,k.a,A]],[3,e.i],e.s]),e._11(5120,e.r,e._9,[[3,e.r]]),e._11(4608,q.k,q.j,[e.r,[2,q.s]]),e._11(5120,e.b,e._0,[]),e._11(5120,e.p,e._6,[]),e._11(5120,e.q,e._7,[]),e._11(4608,t.c,t.q,[q.c]),e._11(6144,e.D,null,[t.c]),e._11(4608,t.f,x.a,[]),e._11(5120,t.d,function(o,n,a,e,i){return[new t.k(o,n),new t.o(a),new t.n(e,i)]},[q.c,e.u,q.c,q.c,t.f]),e._11(4608,t.e,t.e,[t.d,e.u]),e._11(135680,t.m,t.m,[q.c]),e._11(4608,t.l,t.l,[t.e,t.m]),e._11(6144,e.B,null,[t.l]),e._11(6144,t.p,null,[t.m]),e._11(4608,e.G,e.G,[e.u]),e._11(4608,t.h,t.h,[q.c]),e._11(4608,t.i,t.i,[q.c]),e._11(4608,s.c,s.c,[]),e._11(4608,s.g,s.b,[]),e._11(5120,s.i,s.j,[]),e._11(4608,s.h,s.h,[s.c,s.g,s.i]),e._11(4608,s.f,s.a,[]),e._11(5120,s.d,s.k,[s.h,s.f]),e._11(4608,E.k,E.k,[]),e._11(4608,E.c,E.c,[]),e._11(4608,F.a,F.a,[j.a,P.a]),e._11(4608,J.a,J.a,[j.a,P.a]),e._11(4608,T.a,T.a,[]),e._11(4608,W.a,W.a,[]),e._11(4608,B.a,B.a,[C.a]),e._11(4608,G.a,G.a,[P.a,C.a,e.u,O.a]),e._11(4608,H.a,H.a,[j.a,P.a]),e._11(5120,q.f,Y.c,[q.q,[2,q.a],P.a]),e._11(4608,q.e,q.e,[q.f]),e._11(5120,Z.b,Z.d,[j.a,Z.a]),e._11(5120,U.a,U.b,[j.a,Z.b,q.e,z.b,e.i]),e._11(4608,Q.a,Q.a,[j.a,P.a,U.a]),e._11(4608,V.a,V.a,[j.a,P.a]),e._11(4608,X.a,X.a,[j.a,P.a,U.a]),e._11(4608,K.a,K.a,[P.a,C.a,O.a,j.a,L.l]),e._11(4608,$.a,$.a,[j.a,P.a]),e._11(4608,S.a,S.a,[C.a,P.a]),e._11(4608,i.a,i.a,[]),e._11(4608,l.a,l.a,[]),e._11(4608,r.a,r.a,[s.d,e.f]),e._11(512,q.b,q.b,[]),e._11(512,e.k,oo.a,[]),e._11(256,P.b,{},[]),e._11(1024,no.a,no.b,[]),e._11(1024,C.a,C.b,[t.b,no.a,e.u]),e._11(1024,P.a,P.c,[P.b,C.a]),e._11(512,O.a,O.a,[C.a]),e._11(512,ao.a,ao.a,[]),e._11(512,j.a,j.a,[P.a,C.a,[2,ao.a]]),e._11(512,L.l,L.l,[j.a]),e._11(256,Z.a,{links:[{loadChildren:"../pages/locations/locations.module.ngfactory#LocationsPageModuleNgFactory",name:"LocationsPage",segment:"locations",priority:"low",defaultHistory:[]},{loadChildren:"../pages/sections/sections.module.ngfactory#SectionsPageModuleNgFactory",name:"SectionsPage",segment:"afdeling/:locationId",priority:"low",defaultHistory:["LocationsPage"]}]},[]),e._11(512,e.h,e.h,[]),e._11(512,to.a,to.a,[e.h]),e._11(1024,z.b,z.c,[to.a,e.o]),e._11(1024,e.c,function(o,n,a,e,i,l,c,r,s,u,_,d,f){return[t.s(o),eo.a(n),T.b(a,e),K.b(i,l,c,r,s),z.d(u,_,d,f)]},[[2,e.t],P.a,C.a,O.a,P.a,C.a,O.a,j.a,L.l,P.a,Z.a,z.b,e.u]),e._11(512,e.d,e.d,[[2,e.c]]),e._11(131584,e.f,e.f,[e.u,e.T,e.o,e.k,e.i,e.d]),e._11(512,e.e,e.e,[e.f]),e._11(512,t.a,t.a,[[3,t.a]]),e._11(512,s.e,s.e,[]),e._11(512,E.j,E.j,[]),e._11(512,E.d,E.d,[]),e._11(512,E.i,E.i,[]),e._11(512,Y.a,Y.a,[]),e._11(512,u,u,[]),e._11(256,_.a,c,[]),e._11(256,q.a,"/",[])])});Object(e.M)(),Object(t.j)().bootstrapModuleFactory(io)}},[196]);
+webpackJsonp([3],{
+
+/***/ 109:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 109;
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/locations/locations.module": [
+		273,
+		2
+	],
+	"../pages/sections/sections.module": [
+		274,
+		1
+	],
+	"../pages/splash/splash.module": [
+		275,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 150;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 195:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LocationDataProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_mqtt_mqttws31__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_mqtt_mqttws31___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_mqtt_mqttws31__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LocationDataProvider = (function () {
+    function LocationDataProvider(http, appRef) {
+        this.http = http;
+        this.appRef = appRef;
+        this.getAllLocations = function () {
+            return LocationDataProvider_1.locationData.locations;
+        };
+        this.getLocationById = function (locationId) {
+            var index = LocationDataProvider_1.locationData.locations.findIndex(function (location) { return location.locationId == locationId; });
+            return LocationDataProvider_1.locationData.locations[index];
+        };
+        this.getWorkRoomTables = function (workRoomId) {
+            console.log('Searching for work room with id: ' + workRoomId);
+            var result = [];
+            LocationDataProvider_1.locationData.locations.forEach(function (location, index) {
+                console.log('Current location' + JSON.stringify(location));
+                var roomIndex = location.workRooms.findIndex(function (workroom) { return workroom.roomId = workRoomId; });
+                result = LocationDataProvider_1.locationData.locations[index].workRooms[roomIndex].tables;
+            });
+            return result;
+        };
+        this.calcTablesInUse = function (workRoom) {
+            LocationDataProvider_1.locationData.locations.forEach(function (location) { });
+            return workRoom.tables.filter(function (table) { return table.inUse == false; }).length;
+        };
+        this.http.get('http://192.168.1.7/location.json').toPromise()
+            .then(function (resp) {
+            console.log('Recieved response', resp.json());
+            LocationDataProvider_1.locationData = resp.json();
+        })
+            .catch(function (err) {
+            console.error('Recieved request err ', err);
+        });
+        this._client = new __WEBPACK_IMPORTED_MODULE_2_ng2_mqtt_mqttws31__["Paho"].MQTT.Client('192.168.1.7', 61614, '', '');
+        this._client.onConnectionLost = function (responseObject) {
+            console.log('Connection lost.');
+        };
+        this._client.onMessageArrived = function (message) {
+            LocationDataProvider_1.locationData.increment++;
+            console.log('Message arrived.');
+            var payload = JSON.parse(message.payloadString);
+            console.log(payload);
+            console.log('Searching for work- or meeting rooms with associated with device id: ' + payload.deviceId);
+            // TODO: make a less shitty search function
+            LocationDataProvider_1.locationData.locations.forEach(function (location) {
+                // Meeting rooms
+                for (var i = 0; i < location.meetingRooms.length; i++) {
+                    if (location.meetingRooms[i].deviceId == payload.deviceId) {
+                        location.meetingRooms[i].inUse = payload.inUse;
+                        break;
+                    }
+                }
+                // Workrooms w. tables
+                for (var i = 0; i < location.workRooms.length; i++) {
+                    for (var j = 0; j < location.workRooms[i].tables.length; j++) {
+                        if (location.workRooms[i].tables[j].deviceId == payload.deviceId) {
+                            location.workRooms[i].tables[j].inUse = payload.inUse;
+                            break;
+                        }
+                    }
+                }
+            });
+            // Force change detection
+            LocationDataProvider_1.locationData = JSON.parse(JSON.stringify(LocationDataProvider_1.locationData));
+            console.log(LocationDataProvider_1.locationData);
+        };
+        this._client.connect({ onSuccess: this.onConnected.bind(this) });
+    }
+    LocationDataProvider_1 = LocationDataProvider;
+    LocationDataProvider.prototype.onConnected = function () {
+        console.log('Connected to broker.');
+        this._client.subscribe('sts/#', {});
+    };
+    LocationDataProvider.prototype.getIncrement = function () {
+        return LocationDataProvider_1.locationData.increment;
+    };
+    LocationDataProvider.prototype.getWorkRoomsFromLocation = function (locationId) {
+        var i = LocationDataProvider_1.locationData.locations.findIndex(function (location) { return location.locationId == 0; });
+        console.log('FOUND ID' + i + ' requested ID: ' + locationId);
+        return LocationDataProvider_1.locationData.locations[i].workRooms;
+    };
+    LocationDataProvider.locationData = {
+        "locations": [
+            {
+                "locationId": 0,
+                "alias": "AL",
+                "label": "Allerød",
+                "description": "Allerød",
+                "workRooms": [
+                    {
+                        "roomId": 0,
+                        "alias": "D1330",
+                        "tables": [
+                            {
+                                "tableId": 0,
+                                "deviceId": "c41405",
+                                "inUse": false,
+                                "label": "Lols"
+                            },
+                            {
+                                "tableId": 1,
+                                "label": "Chefens skrivebord",
+                                "deviceId": "36216c",
+                                "inUse": false
+                            },
+                            {
+                                "tableId": 2,
+                                "label": "lel",
+                                "deviceId": "675f9",
+                                "inUse": false
+                            }
+                        ]
+                    }
+                ],
+                "meetingRooms": [
+                    {
+                        "roomId": 1,
+                        "alias": "AL015",
+                        "inUse": false
+                    }
+                ]
+            }
+        ]
+    };
+    LocationDataProvider = LocationDataProvider_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ApplicationRef */]])
+    ], LocationDataProvider);
+    return LocationDataProvider;
+    var LocationDataProvider_1;
+}());
+
+//# sourceMappingURL=location-data.js.map
+
+/***/ }),
+
+/***/ 196:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(220);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 220:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_location_data_location_data__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(151);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/locations/locations.module#LocationsPageModule', name: 'LocationsPage', segment: 'locations', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sections/sections.module#SectionsPageModule', name: 'SectionsPage', segment: 'afdeling/:locationId', priority: 'low', defaultHistory: ['LocationsPage'] },
+                        { loadChildren: '../pages/splash/splash.module#SplashPageModule', name: 'SplashPage', segment: 'splash', priority: 'low', defaultHistory: [] }
+                    ]
+                })
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_6__providers_location_data_location_data__["a" /* LocationDataProvider */],
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 264:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(194);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var MyApp = (function () {
+    function MyApp(platform, statusBar, splashScreen, config) {
+        var _this = this;
+        this.rootPage = 'SplashPage';
+        platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+            setTimeout(function () {
+                _this.rootPage = 'LocationsPage';
+            }, 2000);
+        });
+        config.set('mode', 'ios');
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/younderboy/IdeaProjects/sharespace/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/younderboy/IdeaProjects/sharespace/src/app/app.html"*/
+        }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Config */]) === "function" && _e || Object])
+    ], MyApp);
+    return MyApp;
+    var _a, _b, _c, _d, _e;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ })
+
+},[196]);
+//# sourceMappingURL=main.js.map
