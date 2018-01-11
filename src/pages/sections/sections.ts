@@ -21,21 +21,27 @@ export class SectionsPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public locationData: LocationDataProvider) {}
+    public locationData: LocationDataProvider) {
 
+      this.locationId = this.navParams.get('locationId');
+      console.log('Current location id', this.locationId);
+      this.currentLocation = this.locationData.getLocationById(this.locationId);
+      console.log(this.currentLocation);
+  }
 
+  /*
   ionViewWillEnter() {
     this.locationId = this.navParams.get('locationId');
-    console.log(this.locationId);
+    console.log('Current location id', this.locationId);
     this.currentLocation = this.locationData.getLocationById(this.locationId);
     console.log(this.currentLocation);
-  }
+  }*/
 
   public goToWorkRoom(workRoomId: number) {
     console.log('Going to work room');
     this.navCtrl.push('WorkRoomPage', {
       'workRoomId': workRoomId
-    })
+    });
   }
 
   public calcTablesInUse = (workRoom: any): number => {

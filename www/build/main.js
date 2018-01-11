@@ -149,9 +149,9 @@ var LocationDataProvider = (function () {
         return LocationDataProvider_1.locationData.increment;
     };
     LocationDataProvider.prototype.getWorkRoomsFromLocation = function (locationId) {
-        var i = LocationDataProvider_1.locationData.locations.findIndex(function (location) { return location.locationId == 0; });
-        console.log('FOUND ID' + i + ' requested ID: ' + locationId);
-        return LocationDataProvider_1.locationData.locations[i].workRooms;
+        var index = LocationDataProvider_1.locationData.locations.findIndex(function (location) { return location.locationId == locationId; });
+        console.log('FOUND ID ' + index + ' requested ID: ' + locationId);
+        return LocationDataProvider_1.locationData.locations[index].workRooms;
     };
     LocationDataProvider.locationData = {
         "locations": [
@@ -193,16 +193,54 @@ var LocationDataProvider = (function () {
                         "inUse": false
                     }
                 ]
+            },
+            {
+                "locationId": 1,
+                "alias": "HL",
+                "label": "Hillerød",
+                "description": "Hillerød",
+                "workRooms": [
+                    {
+                        "roomId": 2,
+                        "alias": "Far er en nisse",
+                        "tables": [
+                            {
+                                "tableId": 4,
+                                "deviceId": "c41405",
+                                "inUse": false,
+                                "label": "Lols"
+                            },
+                            {
+                                "tableId": 5,
+                                "label": "Chefens skrivebord",
+                                "deviceId": "36216c",
+                                "inUse": false
+                            },
+                            {
+                                "tableId": 6,
+                                "label": "lel",
+                                "deviceId": "675f9",
+                                "inUse": false
+                            }
+                        ]
+                    }
+                ],
+                "meetingRooms": [
+                    {
+                        "roomId": 4,
+                        "alias": "HL01",
+                        "inUse": false
+                    }
+                ]
             }
         ]
     };
     LocationDataProvider = LocationDataProvider_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ApplicationRef */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ApplicationRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ApplicationRef */]) === "function" && _b || Object])
     ], LocationDataProvider);
     return LocationDataProvider;
-    var LocationDataProvider_1;
+    var LocationDataProvider_1, _a, _b;
 }());
 
 //# sourceMappingURL=location-data.js.map
@@ -327,15 +365,17 @@ var MyApp = (function () {
     }
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/younderboy/IdeaProjects/sharespace/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/younderboy/IdeaProjects/sharespace/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Config */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Config */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=app.component.js.map

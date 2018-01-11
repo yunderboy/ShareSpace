@@ -19,31 +19,35 @@
 
 
 <ion-content>
-  <div [ngSwitch]="locationType">
-    <ion-list *ngSwitchCase="'offices'">
-      <ion-list-header>
-        Kontorer
-      </ion-list-header>
+  <div *ngIf="currentLocation">
+
+    <div [ngSwitch]="locationType">
+      <ion-list *ngSwitchCase="'offices'">
+        <ion-list-header>
+          Kontorer
+        </ion-list-header>
 
 
-      <ion-item *ngFor="let workRoom of locationData.getWorkRoomsFromLocation(locationId)">
-        {{workRoom.alias}}
-        <ion-note item-end>
-          Ledige pladser: {{ calcTablesInUse(workRoom) }}
-        </ion-note>
-      </ion-item>
+        <ion-item *ngFor="let workRoom of locationData.getWorkRoomsFromLocation(locationId)">
+          {{workRoom.alias}}
+          <ion-note item-end>
+            Ledige pladser: {{ calcTablesInUse(workRoom) }}
+          </ion-note>
+        </ion-item>
 
-    </ion-list>
+      </ion-list>
 
-    <ion-list *ngSwitchCase="'meetingRooms'">
-      <ion-list-header>
-        Mødelokaler
-      </ion-list-header>
+      <ion-list *ngSwitchCase="'meetingRooms'">
+        <ion-list-header>
+          Mødelokaler
+        </ion-list-header>
 
-      <ion-item *ngFor="let meetingRoom of currentLocation.meetingRooms">
-        {{meetingRoom.alias}}
-      </ion-item>
+        <ion-item *ngFor="let meetingRoom of currentLocation.meetingRooms">
+          {{meetingRoom.alias}}
+        </ion-item>
 
-    </ion-list>
+      </ion-list>
+    </div>
+
   </div>
 </ion-content>

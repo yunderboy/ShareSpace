@@ -48,6 +48,45 @@ export class LocationDataProvider {
             "inUse": false
           }
         ]
+      },
+      {
+        "locationId": 1,
+        "alias": "HL",
+        "label": "Hillerød",
+        "description": "Hillerød",
+        "workRooms": [
+          {
+            "roomId": 2,
+            "alias": "Far er en nisse",
+            "tables": [
+              {
+                "tableId": 4,
+                "deviceId": "c41405",
+                "inUse": false,
+                "label": "Lols"
+              },
+              {
+                "tableId": 5,
+                "label": "Chefens skrivebord",
+                "deviceId": "36216c",
+                "inUse": false
+              },
+              {
+                "tableId": 6,
+                "label": "lel",
+                "deviceId": "675f9",
+                "inUse": false
+              }
+            ]
+          }
+        ],
+        "meetingRooms": [
+          {
+            "roomId": 4,
+            "alias": "HL01",
+            "inUse": false
+          }
+        ]
       }
     ]
   };
@@ -145,9 +184,9 @@ export class LocationDataProvider {
   }
 
   public getWorkRoomsFromLocation(locationId) {
-    const i = LocationDataProvider.locationData.locations.findIndex(location => location.locationId == 0);
-    console.log('FOUND ID' + i + ' requested ID: ' + locationId);
-    return LocationDataProvider.locationData.locations[i].workRooms;
+    const index = LocationDataProvider.locationData.locations.findIndex(location => location.locationId == locationId);
+    console.log('FOUND ID ' + index + ' requested ID: ' + locationId);
+    return LocationDataProvider.locationData.locations[index].workRooms;
   }
 
   public calcTablesInUse = (workRoom: any): number => {
