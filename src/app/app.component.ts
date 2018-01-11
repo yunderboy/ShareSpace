@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: string = 'SplashPage';
+  rootPage: string = 'LocationsPage';
 
   @ViewChild(Nav) nav: Nav;
 
@@ -22,10 +22,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-
-      setTimeout(()=> {
-        this.rootPage = 'LocationsPage'
-      }, 2000);
     });
     config.set('mode', 'ios')
   }

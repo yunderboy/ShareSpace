@@ -237,10 +237,11 @@ var LocationDataProvider = (function () {
     };
     LocationDataProvider = LocationDataProvider_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ApplicationRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ApplicationRef */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ApplicationRef */]])
     ], LocationDataProvider);
     return LocationDataProvider;
-    var LocationDataProvider_1, _a, _b;
+    var LocationDataProvider_1;
 }());
 
 //# sourceMappingURL=location-data.js.map
@@ -350,16 +351,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen, config) {
-        var _this = this;
-        this.rootPage = 'SplashPage';
+        this.rootPage = 'LocationsPage';
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
-            setTimeout(function () {
-                _this.rootPage = 'LocationsPage';
-            }, 2000);
         });
         config.set('mode', 'ios');
     }
